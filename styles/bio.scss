@@ -31,13 +31,38 @@
     padding: 0 1rem;
     
     &__title {
-        padding-top: 1.5rem;
-        padding-bottom: 1rem;
+        padding-top: 1rem;
+        padding-bottom: .5rem;
     }
 
     &__img {
         width: 100%;
         aspect-ratio: 16/9;
-        
+    }
+
+    &__quote {
+        font-weight: 700;
+        line-height: 1.5rem;
+    }
+    &__source{
+        @extend .about__quote;
+    }
+
+    &__subtitle{
+        margin: 1rem 0;
+    } 
+
+    &__copy {
+        margin-bottom: 1rem;
     }
 }
+
+.gallery {
+    padding: 0 1rem;
+    
+    &__img {
+        width: 100%;
+        aspect-ratio: 16/9;
+    }
+}
+

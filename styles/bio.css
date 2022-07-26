@@ -27,7 +27,7 @@ ul {
   font-weight: 700;
 }
 body {
-  font-family: "Avenir Next", sans-serif;
+  font-family: "Avenir Next";
 }
 
 h1, h2 {
@@ -61,12 +61,12 @@ h3 {
   }
 }
 
-p {
+p, span, a {
   font-size: 0.8125rem;
   line-height: 1.125rem;
 }
 @media screen and (min-width: 768px) {
-  p {
+  p, span, a {
     font-size: 0.875rem;
     line-height: 1.375rem;
   }
@@ -140,10 +140,28 @@ p {
   padding: 0 1rem;
 }
 .about__title {
-  padding-top: 1.5rem;
-  padding-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
 }
 .about__img {
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+.about__quote, .about__source {
+  font-weight: 700;
+  line-height: 1.5rem;
+}
+.about__subtitle {
+  margin: 1rem 0;
+}
+.about__copy {
+  margin-bottom: 1rem;
+}
+
+.gallery {
+  padding: 0 1rem;
+}
+.gallery__img {
   width: 100%;
   aspect-ratio: 16/9;
 }/*# sourceMappingURL=bio.css.map */

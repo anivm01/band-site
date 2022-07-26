@@ -1,7 +1,7 @@
 @use './breakpoints' as*;
 
 body {
-    font-family: "Avenir Next", sans-serif;
+    font-family: "Avenir Next";
 }
 
 h1 {
@@ -36,7 +36,7 @@ h3 {
     }
 }
 
-p {
+p, span, a {
     font-size: .8125rem;
     line-height: 1.125rem;
 
