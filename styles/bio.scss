@@ -1,4 +1,6 @@
-@use "./partials/fonts";
-@use "./partials/breakpoints";
-@use "./partials/typography";
-@use "./partials/colors";
+@use "./partials/resets" as*;
+@use "./partials/fonts" as*;
+@use "./partials/breakpoints" as*;
+@use "./partials/typography" as*;
+@use "./partials/colors" as*;
+@use "./partials/header" as*;
