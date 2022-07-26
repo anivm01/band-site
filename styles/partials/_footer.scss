@@ -1,0 +1,52 @@
+@use './colors'as*;
+
+.footer {
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    background-color: $primary-dark;
+    color: $primary-light;
+
+    &__title {
+        padding-top: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    &__socials {
+        display: flex;
+    }
+    &__icon{
+        margin-right: 2rem;
+        margin-bottom: 1rem;
+    }
+    &__location{
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 1rem;
+    }
+    &__person{
+        @extend .footer__location;
+        font-weight: 600;
+    }
+
+    &__item {
+        width: 100%;
+    }
+
+    &__email {
+        display: block;
+        color: $primary-light;
+        width: 100%;
+        padding-bottom: 1rem;
+
+        &:hover{
+            font-weight: 700;
+        }
+    }
+
+    &__copyright {
+        font-size: .625rem;
+    }
+
+
+}

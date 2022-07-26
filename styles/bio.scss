@@ -5,6 +5,7 @@
 @use "./partials/colors" as*;
 @use "./partials/header" as*;
 @use "./partials/logo" as*;
+@use "./partials/footer" as*;
 
 
 .hero {
@@ -59,10 +60,9 @@
 
 .gallery {
     padding: 0 1rem;
-    
+
     &__img {
         width: 100%;
         aspect-ratio: 16/9;
     }
 }
-
