@@ -1,37 +1,47 @@
 @use "./colors" as*;
 @use "./breakpoints" as*;
+@use "./logo" as*;
 
 .header {
     background-color: $primary-dark;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding-top: .5rem;
+    height: fit-content;
 
-    &__logo {
-        display: flex;
-    }
-
-    &__wordmark {
-        
+    &__link {
+        margin: .75rem 0;
     }
 }
 
 .nav {
     width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
 
     &__list {
+        list-style: none;
+        width: 100%;
+        padding: 0;
+        margin: 0;
         display: flex;
-        justify-content: space-between;
     }
 
     &__item {
-        width: 50%;
+        width: 100%;
+        padding-bottom: .5rem;
+        &--active {
+            border-bottom: .25rem solid $primary-light;
+            color:$primary-light;
+            font-weight: 700;
+        }
     }
 
     &__link {
-        color: $primary-light;
+        width: 50%;
+        color: $secondary-light;       
     }
 }

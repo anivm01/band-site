@@ -4,3 +4,40 @@
 @use "./partials/typography" as*;
 @use "./partials/colors" as*;
 @use "./partials/header" as*;
+@use "./partials/logo" as*;
+
+
+.hero {
+    background-image: url('../assets/images/hero-bio.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+    
+
+    &__overlay{
+        height: 100%;
+        width: 100%;
+        background-color: rgba($primary-dark, $alpha)
+        
+    }
+    
+    &__title {
+        color: $primary-light;
+        padding: 20vh 1rem;
+        width: 100%;
+    }
+}
+
+.about {
+    padding: 0 1rem;
+    
+    &__title {
+        padding-top: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    &__img {
+        width: 100%;
+        aspect-ratio: 16/9;
+        
+    }
+}

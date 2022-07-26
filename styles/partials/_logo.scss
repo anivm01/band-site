@@ -1,0 +1,7 @@
+@use "./colors" as*;
+
+.logo {
+    max-width: 7.5rem;
+    max-height: 1.25rem;
+    background-color: $primary-dark;
+}
