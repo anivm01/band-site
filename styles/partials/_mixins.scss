@@ -4,12 +4,16 @@
 //     max-width: calc(100% - $empty-space);
 // }
 
+$mobile-edge: calc(100% - 2rem);
+$tablet-edge: calc(100% - 4.5rem);
+$desktop-width: 75.5rem;
+
 @mixin width {
-    max-width: calc(100% - 2rem);
+    max-width: $mobile-edge;
     @include tablet {
-        max-width: calc(100% - 4.5rem);
+        max-width: $tablet-edge;
     }
     @include desktop {
-        max-width: 75.5rem;
+        max-width: $desktop-width
     }
 }

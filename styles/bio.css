@@ -175,17 +175,18 @@ p, span, a {
 .footer__item {
   width: 100%;
 }
-.footer__email {
+.footer__copyright {
+  font-size: 0.625rem;
+}
+
+.contact__email {
   display: block;
   color: #ffffff;
   width: 100%;
   padding-bottom: 1rem;
 }
-.footer__email:hover {
+.contact__email:hover {
   font-weight: 700;
-}
-.footer__copyright {
-  font-size: 0.625rem;
 }
 
 .hero {
@@ -260,9 +261,40 @@ p, span, a {
 }
 
 .gallery {
-  padding: 0 1rem;
+  background-color: #FAFAFA;
+}
+.gallery__wrapper {
+  max-width: calc(100% - 2rem);
+  margin: 0 auto;
+}
+@media screen and (min-width: 768px) {
+  .gallery__wrapper {
+    max-width: calc(100% - 4.5rem);
+  }
+}
+@media screen and (min-width: 1280px) {
+  .gallery__wrapper {
+    max-width: 75.5rem;
+  }
+}
+.gallery__photogrid {
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (min-width: 768px) {
+  .gallery__photogrid {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 }
 .gallery__img {
   width: 100%;
   aspect-ratio: 16/9;
+  margin-top: 1rem;
+}
+@media screen and (min-width: 768px) {
+  .gallery__img {
+    width: calc(33.3333333333% - 1rem);
+  }
 }/*# sourceMappingURL=bio.css.map */
