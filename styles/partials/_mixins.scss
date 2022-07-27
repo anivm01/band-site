@@ -1,0 +1,15 @@
+@use "./breakpoints" as*;
+
+// @mixin width ($empty-space) {
+//     max-width: calc(100% - $empty-space);
+// }
+
+@mixin width {
+    max-width: calc(100% - 2rem);
+    @include tablet {
+        max-width: calc(100% - 4.5rem);
+    }
+    @include desktop {
+        max-width: 75.5rem;
+    }
+}

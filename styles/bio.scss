@@ -6,95 +6,159 @@
 @use "./partials/header" as*;
 @use "./partials/logo" as*;
 @use "./partials/footer" as*;
+@use "./partials/mixins" as*;
 
 
 .hero {
     background-image: url('../assets/images/hero-bio.jpg');
         background-size: cover;
         background-repeat: no-repeat;
-    
+        position: relative;
+        display: flex;
+        align-items: center;
+        
+        height: 50vw;
+        max-height: 60vh;
 
     &__overlay{
+        position: absolute;
         height: 100%;
         width: 100%;
         background-color: rgba($primary-dark, $alpha)
     }
     
     &__title {
+        width: calc(100% - 2rem);
         color: $primary-light;
-        padding: 20vh 1rem;
-        width: 100%;
-
+        z-index: 1;
+        margin: 0 auto;
         @include tablet {
-            padding: 25vh 2.25rem
+            width: calc(100% - 4.5rem);
         }
+        @include desktop {
+            width: 75.5rem;
+        }
+
+
+        // margin-left: 1rem;
+
+        // @include tablet {
+        //     margin-left: 2.25rem;
+        // }
     }
 }
 
 .about {
-    padding: 0 1rem;
-
-    @include tablet {
-        padding: 0 2.25rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    // &__title{
+    // width: 100%;
+    // }
+    &__container{
+        @include width;
+    }
+    &__wrapper{
+        margin: 0 auto;
     }
     
-    &__title {
-        padding-top: 1rem;
-        padding-bottom: .5rem;
-        width: 100%;
-    }
-
-    &__wrapper {
-        width: 100%;
+    &__copy{
 
         @include tablet {
-            width: 75%;
-        }
-    }
-
-    &__copy {
-        width: 100%;
-
-        @include tablet {
-            width: 75%;
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
         }
+        
     }
 
     &__img {
-        width: 100%;
-        aspect-ratio: 16/9;
-    }
-
-    &__quote {
-        font-weight: 700;
-        line-height: 1.5rem;
-
-        @include desktop {
-            width: 80%
-        }   
-    }
-    &__source{
-        @extend .about__quote;
-    }
-
-    &__subtitle{
-        margin: 1rem 0;
-
-        @include tablet {
             width: 100%;
+            aspect-ratio: 16/9;
         }
-    }
 
     &__column {
-        width: 48%;
-        margin-bottom: 1rem;
+
+        @include tablet {
+            width: 48%;
+        }
+        
     }
+
+
+
+ 
+    
+
+
+
+
+
+
+    // padding: 0 1rem;
+
+    // @include tablet {
+    //     padding: 0 2.25rem;
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+    // }
+    
+    // &__title {
+    //     padding-top: 1rem;
+    //     padding-bottom: .5rem;
+    //     width: 100%;
+    // }
+
+    // &__wrapper {
+    //     width: 100%;
+
+    //     @include tablet {
+    //         width: 75%;
+    //     }
+    // }
+
+    // &__copy {
+    //     width: 100%;
+
+    //     @include tablet {
+    //         width: 75%;
+    //         display: flex;
+    //         flex-wrap: wrap;
+    //         justify-content: space-between;
+    //     }
+    // }
+
+    // &__img {
+    //     width: 100%;
+    //     aspect-ratio: 16/9;
+    // }
+
+    // &__quote {
+    //     font-weight: 700;
+    //     line-height: 1.5rem;
+
+    //     @include desktop {
+    //         width: 80%
+    //     }   
+    // }
+    // &__source{
+    //     @extend .about__quote;
+    // }
+
+    // &__subtitle{
+    //     margin: 1rem 0;
+
+    //     @include tablet {
+    //         width: 100%;
+    //     }
+    // }
+
+    // &__column {
+    //     width: 48%;
+    //     margin-bottom: 1rem;
+    // }
 }
 
 .gallery {

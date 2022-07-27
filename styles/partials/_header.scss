@@ -1,23 +1,29 @@
 @use "./colors" as*;
 @use "./breakpoints" as*;
 @use "./logo" as*;
+@use "./mixins" as*;
 
 .header {
     background-color: $primary-dark;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: .5rem;
     height: fit-content;
-
-    @include tablet {
-        flex-direction: row;
-        align-items: flex-end;
-        padding-left: 2.25rem;
-        padding-top: 1.5rem;
+    
+    &__wrapper {
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: .5rem;
+        
+        @include tablet {
+            flex-direction: row;
+            margin: 0 auto;
+            // align-items: flex-end;
+            padding-top: 1.5rem;
+            width: calc(100% - 4.5rem);
+            max-width: 75.5rem;;
+        }
     }
-
 
     &__link {
         margin: .75rem 0;
