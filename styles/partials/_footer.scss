@@ -1,45 +1,92 @@
 @use './colors'as*;
+@use './breakpoints'as*;
+@use './mixins'as*;
 
 .footer {
-    padding: 0 1rem;
-    display: flex;
-    flex-direction: column;
     background-color: $primary-dark;
-    color: $primary-light;
+    color: $primary-light;    
+    
+
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        @include width;
+        margin: 0 auto;
+
+        @include tablet {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            // align-items: center;
+        }
+    }
 
     &__title {
-        padding-top: 1.5rem;
-        padding-bottom: 1rem;
+        @include tablet {
+            width: fit-content;
+            order: -1;
+        }
     }
 
     &__socials {
-        display: flex;
+        @include tablet {
+            width: fit-content;
+            order: -1;
+            margin-right: auto;
+        }
     }
-    &__icon{
-        margin-right: 2rem;
-        margin-bottom: 1rem;
-    }
-    &__location{
+
+    &__contacts {
+        width: 100%;
         display: flex;
         flex-direction: column;
-        padding-bottom: 1rem;
-    }
-    &__person{
-        @extend .footer__location;
-        font-weight: 600;
-    }
 
-    &__item {
-        width: 100%;
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+        }
     }
 
-
-    &__copyright {
-        font-size: .625rem;
+    &__logo {
+        @include tablet{
+            order: -1;
+        }
     }
-
-
 }
+
+
+    // &__title {
+    //     padding-top: 1.5rem;
+    //     padding-bottom: 1rem;
+    // }
+
+    // &__socials {
+    //     display: flex;
+    // }
+    // &__icon{
+    //     margin-right: 2rem;
+    //     margin-bottom: 1rem;
+    // }
+    // &__location{
+    //     display: flex;
+    //     flex-direction: column;
+    //     padding-bottom: 1rem;
+    // }
+    // &__person{
+    //     @extend .footer__location;
+    //     font-weight: 600;
+    // }
+
+    // &__item {
+    //     width: 100%;
+    // }
+
+
+    // &__copyright {
+    //     font-size: .625rem;
+    // }
+
+
 
 .contact__email {
     display: block;

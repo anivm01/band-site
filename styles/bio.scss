@@ -15,8 +15,7 @@
         background-repeat: no-repeat;
         position: relative;
         display: flex;
-        align-items: center;
-        
+        align-items: center;  
         height: 50vw;
         max-height: 60vh;
 
@@ -55,12 +54,10 @@
     }
     
     &__copy{
-
         @include tablet {
             display: flex;
             justify-content: space-between;
-        }
-        
+        } 
     }
 
     &__img {
@@ -168,7 +165,7 @@
 
         @include tablet {
             
-            width: calc((100%/3) - 1rem);
+            width: calc((100%/3) - .75rem);
         }
     }
 }
