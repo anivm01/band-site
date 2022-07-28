@@ -7,8 +7,6 @@
 @use "./partials/logo" as*;
 @use "./partials/footer" as*;
 @use "./partials/mixins" as*;
-
-
 .hero {
     background-image: url('../assets/images/hero-bio.jpg');
         background-size: cover;
@@ -18,14 +16,12 @@
         align-items: center;  
         height: 50vw;
         max-height: 60vh;
-
     &__overlay{
         position: absolute;
         height: 100%;
         width: 100%;
         background-color: rgba($primary-dark, $alpha)
     }
-    
     &__title {
         width: $mobile-edge;
         color: $primary-light;
@@ -39,37 +35,31 @@
         }
     }
 }
-
 .about {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-
     &__container{
         @include width;
     }
     &__wrapper{
         margin: 0 auto;
-
         @include tablet {
             padding: 0 10%;
         }
     }
-    
     &__copy{
         @include tablet {
             display: flex;
             justify-content: space-between;
         } 
     }
-    
     &__title {
         font-weight: 600;
         @include top-space;
         @include bottom-space;
     }
-    
     &__img {
         width: 100%;
         aspect-ratio: 16/9;
@@ -79,7 +69,6 @@
         font-weight: 600;
         font-size: 1rem;
         line-height: 1.5rem;
-
         @include tablet {
             font-size: 1.5rem;
             line-height: 2rem;
@@ -93,7 +82,6 @@
         font-size: 1rem;
         padding-top: 1rem;
         padding-bottom: .5rem;
-
     }
     &__subtitle {
         @include top-space;
@@ -101,49 +89,50 @@
     }
     &__column {
         @include bottom-space;
-
-        @include tablet {
-            width: 48%;
+        &--left {
+            @include tablet {
+                padding-right: .75rem;
+            }
         }
-        
+        &--right {
+            @include tablet {
+                padding-left: .75rem;
+            }
+        }
     }
 }
-
 .gallery {
     background-color: $secondary-light;
     @include tablet {
         padding-bottom: 1rem;
     }
-
     &__wrapper {
         @include width;
         margin: 0 auto;
     }
-
     &__title {
         @include top-space;
         @include bottom-space;
     }
-
     &__photogrid {
         display: flex;
         flex-direction: column;
-
         @include tablet {
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-between;
         }
     }
-
     &__img {
         width: 100%;
         aspect-ratio: 16/9;
+        filter: grayscale(100%);
         margin-bottom: 1rem;
-
         @include tablet {
             width: calc((100%/3) - .75rem);
         }
-
+        &:hover {
+            filter: none;
+        }
     }
 }

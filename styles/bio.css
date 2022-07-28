@@ -130,25 +130,38 @@ p, span, a {
   display: flex;
 }
 .nav__item {
-  width: 50%;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .nav__item {
+    width: 4rem;
+    margin: 0 2rem;
+  }
+}
+.nav__link {
+  display: block;
+  margin: 0 auto;
+  color: #FAFAFA;
+  width: 100%;
   padding-bottom: 0.5rem;
 }
-.nav__item--active {
+.nav__link--active {
   border-bottom: 0.25rem solid #ffffff;
   color: #ffffff;
   font-weight: 700;
 }
+.nav__link:hover {
+  border-bottom: 0.25rem solid #ffffff;
+  color: #ffffff;
+  font-weight: 600;
+}
 @media screen and (min-width: 768px) {
-  .nav__item {
+  .nav__link {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
-    margin: 0 2rem;
     padding-bottom: 1rem;
   }
-}
-.nav__link {
-  color: #FAFAFA;
 }
 
 .footer {
@@ -159,7 +172,7 @@ p, span, a {
 }
 @media screen and (min-width: 768px) {
   .footer {
-    padding-bottom: 2.25rem;
+    padding-bottom: 2rem;
   }
 }
 .footer__wrapper {
@@ -382,7 +395,7 @@ p, span, a {
 }
 @media screen and (min-width: 768px) {
   .about__title {
-    padding-bottom: 2.25rem;
+    padding-bottom: 2rem;
   }
 }
 .about__img {
@@ -423,7 +436,7 @@ p, span, a {
 }
 @media screen and (min-width: 768px) {
   .about__subtitle {
-    padding-bottom: 2.25rem;
+    padding-bottom: 2rem;
   }
 }
 .about__column {
@@ -431,12 +444,17 @@ p, span, a {
 }
 @media screen and (min-width: 768px) {
   .about__column {
-    padding-bottom: 2.25rem;
+    padding-bottom: 2rem;
   }
 }
 @media screen and (min-width: 768px) {
-  .about__column {
-    width: 48%;
+  .about__column--left {
+    padding-right: 0.75rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .about__column--right {
+    padding-left: 0.75rem;
   }
 }
 
@@ -473,7 +491,7 @@ p, span, a {
 }
 @media screen and (min-width: 768px) {
   .gallery__title {
-    padding-bottom: 2.25rem;
+    padding-bottom: 2rem;
   }
 }
 .gallery__photogrid {
@@ -490,10 +508,14 @@ p, span, a {
 .gallery__img {
   width: 100%;
   aspect-ratio: 16/9;
+  filter: grayscale(100%);
   margin-bottom: 1rem;
 }
 @media screen and (min-width: 768px) {
   .gallery__img {
     width: calc(33.3333333333% - 0.75rem);
   }
+}
+.gallery__img:hover {
+  filter: none;
 }/*# sourceMappingURL=bio.css.map */
