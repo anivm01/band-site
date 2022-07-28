@@ -4,7 +4,10 @@
 
 .footer {
     background-color: $primary-dark;
-    color: $primary-light;    
+    color: $primary-light;
+    padding-top: 1rem;
+    @include bottom-space;
+
     
 
     &__wrapper {
@@ -17,18 +20,24 @@
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-between;
-            // align-items: center;
+            align-items: baseline;
         }
     }
 
     &__title {
+        @include top-space;
         @include tablet {
+            margin-right: 1.6rem;
             width: fit-content;
             order: -1;
+        }
+        @include desktop {
+            margin-right: 2.25rem;
         }
     }
 
     &__socials {
+        @include top-space;
         @include tablet {
             width: fit-content;
             order: -1;
@@ -40,16 +49,28 @@
         width: 100%;
         display: flex;
         flex-direction: column;
+        margin-bottom: 2rem;
+ 
 
         @include tablet {
             flex-direction: row;
-            justify-content: space-between;
         }
     }
 
     &__logo {
+        @include top-space;
         @include tablet{
             order: -1;
+        }
+    }
+
+    &__copyright {
+        font-weight: 600;
+        font-size: .625rem;
+        padding-top: .5rem;
+        @include tablet{
+            font-size: .875rem;
+            padding: 0;
         }
     }
 }
@@ -86,15 +107,53 @@
     //     font-size: .625rem;
     // }
 
-
-
-.contact__email {
-    display: block;
-    color: $primary-light;
-    width: 100%;
-    padding-bottom: 1rem;
-
-    &:hover{
-        font-weight: 700;
+.social {
+    &__icon {
+        height: 1.5rem;
+    }
+    &__link {
+        margin-right: 1.5rem;
     }
 }
+
+
+.contact {
+
+    &__card--center{
+
+        @include tablet {
+            margin-left: 2.7rem;
+            margin-right: 3.3rem;
+        }
+        @include desktop {
+            margin-left: 3.5rem;
+            margin-right: 5rem;
+        }
+    }
+
+    &__person {
+        font-weight: 600;
+    }
+
+    &__segment {
+        margin-top: 1rem;
+        @include tablet {
+            margin-top: 2rem;
+        }
+    }
+
+    &__email {
+        display: block;
+        color: $primary-light;
+        width: 100%;
+        padding-bottom: 1rem;
+        margin-top: 1rem;
+        @include tablet {
+            margin-top: 2rem;
+        }
+    }
+
+
+}
+
+

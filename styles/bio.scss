@@ -51,6 +51,10 @@
     }
     &__wrapper{
         margin: 0 auto;
+
+        @include tablet {
+            padding: 0 10%;
+        }
     }
     
     &__copy{
@@ -59,92 +63,66 @@
             justify-content: space-between;
         } 
     }
-
+    
+    &__title {
+        font-weight: 600;
+        @include top-space;
+        @include bottom-space;
+    }
+    
     &__img {
-            width: 100%;
-            aspect-ratio: 16/9;
+        width: 100%;
+        aspect-ratio: 16/9;
+        padding-bottom: 1rem;
         }
+    &__quote{
+        font-weight: 600;
+        font-size: 1rem;
+        line-height: 1.5rem;
 
+        @include tablet {
+            font-size: 1.5rem;
+            line-height: 2rem;
+        }
+        @include desktop {
+            width: 50ch;
+        }
+    }
+    &__source{
+        font-weight: 700;
+        font-size: 1rem;
+        padding-top: 1rem;
+        padding-bottom: .5rem;
+
+    }
+    &__subtitle {
+        @include top-space;
+        @include bottom-space;
+    }
     &__column {
+        @include bottom-space;
 
         @include tablet {
             width: 48%;
         }
         
     }
-
-
-    // padding: 0 1rem;
-
-    // @include tablet {
-    //     padding: 0 2.25rem;
-    //     display: flex;
-    //     flex-direction: column;
-    //     align-items: center;
-    // }
-    
-    // &__title {
-    //     padding-top: 1rem;
-    //     padding-bottom: .5rem;
-    //     width: 100%;
-    // }
-
-    // &__wrapper {
-    //     width: 100%;
-
-    //     @include tablet {
-    //         width: 75%;
-    //     }
-    // }
-
-    // &__copy {
-    //     width: 100%;
-
-    //     @include tablet {
-    //         width: 75%;
-    //         display: flex;
-    //         flex-wrap: wrap;
-    //         justify-content: space-between;
-    //     }
-    // }
-
-    // &__img {
-    //     width: 100%;
-    //     aspect-ratio: 16/9;
-    // }
-
-    // &__quote {
-    //     font-weight: 700;
-    //     line-height: 1.5rem;
-
-    //     @include desktop {
-    //         width: 80%
-    //     }   
-    // }
-    // &__source{
-    //     @extend .about__quote;
-    // }
-
-    // &__subtitle{
-    //     margin: 1rem 0;
-
-    //     @include tablet {
-    //         width: 100%;
-    //     }
-    // }
-
-    // &__column {
-    //     width: 48%;
-    //     margin-bottom: 1rem;
-    // }
 }
 
 .gallery {
     background-color: $secondary-light;
+    @include tablet {
+        padding-bottom: 1rem;
+    }
 
     &__wrapper {
         @include width;
         margin: 0 auto;
+    }
+
+    &__title {
+        @include top-space;
+        @include bottom-space;
     }
 
     &__photogrid {
@@ -161,11 +139,11 @@
     &__img {
         width: 100%;
         aspect-ratio: 16/9;
-        margin-top: 1rem;
+        margin-bottom: 1rem;
 
         @include tablet {
-            
             width: calc((100%/3) - .75rem);
         }
+
     }
 }
