@@ -23,3 +23,7 @@ $desktop-width: 65rem;
         padding-bottom: 2rem;
     }
 }
+@mixin change-direction {
+    display: flex;
+    flex-direction: column;
+}

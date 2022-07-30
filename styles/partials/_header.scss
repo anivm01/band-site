@@ -2,13 +2,14 @@
 @use "./breakpoints" as*;
 @use "./logo" as*;
 @use "./mixins" as*;
+
 .header {
     background-color: $primary-dark;
     width: 100%;
     height: fit-content;
+    
     &__wrapper {
-        display: flex;
-        flex-direction: column;
+        @include change-direction;
         align-items: center;
         padding-top: .5rem;
         @include tablet {
@@ -19,6 +20,7 @@
             max-width: $desktop-width;
         }
     }
+    
     &__link {
         margin: .75rem 0;
         @include tablet {
@@ -41,9 +43,9 @@
         display: flex;
     }
     &__item {
-        width: 100%;
+        flex-basis: 50%;
         @include tablet {
-            width: 4rem;
+            flex-basis: 15%;
             margin: 0 2rem;
         } 
     }
@@ -51,7 +53,6 @@
         display: block;
         margin: 0 auto;
         color: $secondary-light;
-        width: 100%;
         padding-bottom: .5rem;
         &--active {
             border-bottom: .25rem solid $primary-light;
@@ -69,3 +70,4 @@
         }
     }
 }
+
