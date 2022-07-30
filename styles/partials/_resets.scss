@@ -1,10 +1,15 @@
 *, *::before, *::after {
     box-sizing: border-box;
-    margin: 0;
 }
+
 a {
     text-decoration: none;
 }
+
 ul {
     list-style: none;
+}
+
+body, h1, h2, h3, p, ul {
+    margin: 0;
 }

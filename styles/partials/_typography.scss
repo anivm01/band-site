@@ -1,7 +1,9 @@
 @use './breakpoints' as*;
+
 body {
     font-family: "Avenir Next";
 }
+
 h1 {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -11,6 +13,7 @@ h1 {
         line-height: 4.25rem;
     }
 }
+
 h2 {
     font-size: 1.5rem;
     line-height: 2rem;
@@ -20,6 +23,7 @@ h2 {
         line-height: 2.75rem;
     }
 }
+
 h3 {
     font-size: .875rem;
     line-height: 1.375rem;
@@ -29,6 +33,7 @@ h3 {
         line-height: 2rem;
     }
 }
+
 p, span, a {
     font-size: .8125rem;
     line-height: 1.125rem;

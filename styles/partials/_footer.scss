@@ -1,11 +1,13 @@
 @use './colors'as*;
 @use './breakpoints'as*;
 @use './mixins'as*;
+
 .footer {
     background-color: $primary-dark;
     color: $primary-light;
     padding-top: 1rem;
     @include bottom-space;
+
     &__wrapper {
         @include change-direction;
         @include width;
@@ -17,6 +19,7 @@
             align-items: baseline;
         }
     }
+
     &__title {
         @include top-space;
         @include tablet {
@@ -25,12 +28,14 @@
             order: -1;
         }
     }
+
     &__socials {
         @include top-space;
         @include tablet {
             order: -1;
         }
     }
+
     &__contacts {
         width: 100%;
         @include top-space;
@@ -41,6 +46,7 @@
             max-width: 50rem;
         }        
     }
+
     &__logo {
         @include top-space;
         @include tablet{
@@ -49,6 +55,7 @@
             margin-left: auto;
         }
     }
+
     &__copyright {
         font-weight: 600;
         font-size: .625rem;
@@ -60,31 +67,36 @@
         }
     }
 }
+
 .social {
+    margin-right: 1.5rem;
+    
     &__icon {
         height: 1.5rem;
     }
-    &__link {
-        margin-right: 1.5rem;
-    }
 }
+
 .card {
     @include tablet {
-        flex-basis: 16rem;
-        &:nth-child(2){
+    flex-basis: 16rem;
+
+    &:nth-child(2){
             margin-left: 1rem;
             margin-right: 1rem;
         }
     }
+
     &__person {
         font-weight: 600;
     }
+
     &__line {
         margin-top: 1rem;
         @include tablet {
             margin-top: 2rem;
         }
     }
+
     &__email {
         display: block;
         color: $primary-light;

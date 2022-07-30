@@ -1,6 +1,5 @@
 *, *::before, *::after {
   box-sizing: border-box;
-  margin: 0;
 }
 
 a {
@@ -9,6 +8,10 @@ a {
 
 ul {
   list-style: none;
+}
+
+body, h1, h2, h3, p, ul {
+  margin: 0;
 }
 
 @font-face {
@@ -135,7 +138,6 @@ p, span, a {
 @media screen and (min-width: 768px) {
   .nav__item {
     flex-basis: 15%;
-    margin: 0 2rem;
   }
 }
 .nav__link {
@@ -271,11 +273,11 @@ p, span, a {
   }
 }
 
+.social {
+  margin-right: 1.5rem;
+}
 .social__icon {
   height: 1.5rem;
-}
-.social__link {
-  margin-right: 1.5rem;
 }
 
 @media screen and (min-width: 768px) {

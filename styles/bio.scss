@@ -1,26 +1,29 @@
-@use "./partials/resets" as*;
-@use "./partials/fonts" as*;
+@use "./partials/resets";
+@use "./partials/fonts";
 @use "./partials/breakpoints" as*;
-@use "./partials/typography" as*;
+@use "./partials/typography";
 @use "./partials/colors" as*;
-@use "./partials/header" as*;
-@use "./partials/logo" as*;
-@use "./partials/footer" as*;
+@use "./partials/header";
+@use "./partials/logo";
+@use "./partials/footer";
 @use "./partials/mixins" as*;
+
 .hero {
     background-image: url('../assets/images/hero-bio.jpg');
-        background-size: cover;
-        position: relative;
-        display: flex;
-        align-items: center;  
-        height: 50vw;
-        max-height: 60vh;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;  
+    height: 50vw;
+    max-height: 60vh;
+    
     &__overlay{
         position: absolute;
         height: 100%;
         width: 100%;
         background-color: rgba($primary-dark, $alpha)
     }
+    
     &__title {
         font-weight: 600;
         width: $mobile-edge;
@@ -35,40 +38,48 @@
         }
     }
 }
+
 .about {
     width: 100%;
     @include change-direction;
     align-items: center;
+    
     &__container{
         @include width;
     }
+    
     &__wrapper{
         margin: 0 auto;
         @include tablet {
             padding: 0 10%;
         }
     }
+
     &__copy{
         @include tablet {
             display: flex;
             justify-content: space-between;
         } 
     }
+
     &__column {
         @include bottom-space;
         flex-basis: 48%;
     }
+
     &__title {
         font-weight: 600;
         @include top-space;
         @include bottom-space;
     }
+
     &__img {
         display: block;
         width: 100%;
         aspect-ratio: 16/9;
         @include bottom-space;
-        }
+    }
+
     &__quote{
         font-weight: 600;
         font-size: 1rem;
@@ -79,11 +90,12 @@
             font-weight: 700;
             font-size: 1.25rem;
             line-height: 2rem;
-            }
+        }
+
         @include desktop {
             max-width: 48ch;
-            }
         }
+    }
     
     &__source{
         font-weight: 600;
@@ -94,25 +106,29 @@
             font-weight: 700;
         }
     }
+
     &__subtitle {
         @include top-space;
         @include bottom-space;
-    }
-    
+    } 
 }
+
 .gallery {
     background-color: $secondary-light;
     @include tablet {
         padding-bottom: 1rem;
     }
+
     &__wrapper {
         @include width;
         margin: 0 auto;
     }
+
     &__title {
         @include top-space;
         @include bottom-space;
     }
+
     &__photogrid {
         @include change-direction;
         @include tablet {
@@ -121,6 +137,7 @@
             justify-content: space-between;
         }
     }
+    
     &__img {
         width: 100%;
         aspect-ratio: 16/9;

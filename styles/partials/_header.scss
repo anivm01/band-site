@@ -1,6 +1,6 @@
 @use "./colors" as*;
 @use "./breakpoints" as*;
-@use "./logo" as*;
+@use "./logo";
 @use "./mixins" as*;
 
 .header {
@@ -30,11 +30,13 @@
         }
     }
 }
+
 .nav {
     width: 100%;
     display: flex;
     justify-content: space-evenly;
     text-align: center;
+    
     &__list {
         list-style: none;
         width: 100%;
@@ -42,32 +44,35 @@
         margin: 0;
         display: flex;
     }
+
     &__item {
         flex-basis: 50%;
         @include tablet {
             flex-basis: 15%;
-            margin: 0 2rem;
         } 
     }
+
     &__link {
         display: block;
         margin: 0 auto;
         color: $secondary-light;
         padding-bottom: .5rem;
+
         &--active {
             border-bottom: .25rem solid $primary-light;
             color:$primary-light;
             font-weight: 700;
         }
+
         &:hover {
             border-bottom: .25rem solid $primary-light;
             color:$primary-light;
             font-weight: 600;
         }
+
         @include tablet {
             width: fit-content;
             padding-bottom: 1rem;
         }
     }
 }
-

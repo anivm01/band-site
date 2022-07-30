@@ -1,7 +1,9 @@
 @use "./breakpoints" as*;
+
 $mobile-edge: calc(100% - 2rem);
 $tablet-edge: calc(100% - 4.5rem);
 $desktop-width: 65rem;
+
 @mixin width {
     max-width: $mobile-edge;
     @include tablet {
@@ -11,18 +13,21 @@ $desktop-width: 65rem;
         max-width: $desktop-width
     }
 }
+
 @mixin top-space {
     padding-top: 1rem;
     @include tablet {
         padding-top: 3rem;
     }
 }
+
 @mixin bottom-space {
     padding-bottom: 1rem;
     @include tablet {
         padding-bottom: 2rem;
     }
 }
+
 @mixin change-direction {
     display: flex;
     flex-direction: column;
