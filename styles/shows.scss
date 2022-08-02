@@ -1,0 +1,81 @@
+@use "./partials/resets";
+@use "./partials/fonts";
+@use "./partials/breakpoints" as*;
+@use "./partials/typography";
+@use "./partials/colors" as*;
+@use "./partials/header";
+@use "./partials/logo";
+@use "./partials/footer";
+@use "./partials/mixins" as*;
+@use "./partials/hero";
+
+.hero {
+    background-image: url('../assets/images/hero-shows.jpg');
+    min-height: 10rem;
+    height: 70vw;
+    max-height: 60vh;
+    min-height: 20rem;
+    
+    &__wrapper {
+        @include change-direction;
+        justify-content: center;
+        width: $mobile-edge;
+        margin: 0 auto;
+        z-index: 1;
+        @include top-space;
+        @include bottom-space;
+        @include tablet {
+            width: $tablet-edge;
+        }
+        @include desktop {
+            width: $desktop-width;
+            flex-direction: row;
+            align-items: flex-end;
+            justify-content: space-between;
+        }
+    }
+
+    &__text {
+        @include change-direction;
+        
+    }
+    &__title {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        width: 16ch;
+        font-weight: 600;
+        color: $primary-light;
+        @include top-space;
+        @include bottom-space;
+
+        @include tablet {
+            font-size: 3.75rem;
+            line-height: 4.25rem;
+        }
+
+        @include desktop {
+            width: 13ch;
+            padding-top: 2rem;
+        }
+    }
+    &__subtitle {
+        @include top-space;
+        font-weight: 600;
+        color: $primary-light;
+    }
+
+    &__embed {
+        height: 8rem;
+        width: 100%;
+        @include bottom-space;
+
+       @include tablet {
+        width: 60%;
+       }
+
+       @include desktop {
+        height: 10rem;
+        width: 38%;
+       }
+    }
+}

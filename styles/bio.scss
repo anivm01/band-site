@@ -7,23 +7,11 @@
 @use "./partials/logo";
 @use "./partials/footer";
 @use "./partials/mixins" as*;
+@use "./partials/hero";
 
 .hero {
     background-image: url('../assets/images/hero-bio.jpg');
-    background-size: cover;
-    position: relative;
-    display: flex;
-    align-items: center;  
-    height: 50vw;
-    max-height: 60vh;
-    
-    &__overlay{
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background-color: rgba($primary-dark, $alpha)
-    }
-    
+
     &__title {
         font-weight: 600;
         width: $mobile-edge;

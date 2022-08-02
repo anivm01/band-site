@@ -1,0 +1,21 @@
+@use "./colors" as *;
+@use "./breakpoints" as *;
+@use "./mixins" as *;
+
+.hero {
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;  
+    height: 70vw;
+    max-height: 60vh;
+    
+    
+    &::after{
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: rgba($primary-dark, $alpha)
+    }
+}
