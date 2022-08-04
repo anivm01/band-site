@@ -1,0 +1,30 @@
+@use "./colors"as*;
+@use "./breakpoints"as*;
+@use "./mixins"as*;
+
+.label {
+    text-transform: uppercase;
+    color: $primary-mid;
+    font-size: .625rem;
+    line-height: 1.25rem;
+    font-weight: 700;
+}
+
+.button {
+    display: block;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.25rem;
+    font-weight: 600;
+    background-color: $primary-dark;
+    color: $primary-light;
+    padding-top: .825rem;
+    padding-bottom: .625rem;
+    border-radius: .25rem;
+    width: 100%;
+
+    @include tablet{
+        width: 10rem;
+    }
+}
