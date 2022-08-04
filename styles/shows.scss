@@ -85,7 +85,7 @@
 }
 
 .shows {
-    @include width;
+    max-width: $mobile-edge;
     margin: 0 auto;
 
     @include desktop {
@@ -102,7 +102,9 @@
 		font-weight: 700;
 		@include top-space;
 		@include bottom-space;
+        
         @include tablet {
+        padding-left: 1rem;
 		font-size: 2.25rem;
 		line-height: 2.75rem;
         }
@@ -114,9 +116,8 @@
     &__labels {
         display: none;
         @include tablet {
+            padding: 1rem;
             display: flex;
-            width: 100%;
-            justify-content: space-between;
         }
         @include desktop {
             flex-basis: 75%;
@@ -124,10 +125,14 @@
     }
 
     &__label {
-        flex-basis: 25%;
-        &:last-child {
-            flex-basis: 50%;
+        @include tablet{
+            font-weight: 600;
+            flex-basis: 25%;
+            &:last-child {
+                flex-basis: 50%;
+            }
         }
+        
     }
 
     &__container {
@@ -141,14 +146,12 @@
     border-bottom: .0625rem solid $secondary-mid;
     padding-bottom: 1rem;
     @include tablet {
-        padding-top: 1rem;
+        padding: 1rem;
         display: flex;
-        width: 100%;
         align-items: center;
     }
 
     &__label {
-        @include width;
         margin: 0 auto;
         display: block;
         @include tablet {
@@ -157,8 +160,7 @@
     }
 
     &__info {
-        @include width;
-        margin: 0 auto;
+        max-width: $mobile-edge;
         padding-bottom: 1rem;
         @include tablet {
             flex-basis: 25%;
