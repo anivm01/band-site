@@ -8,9 +8,22 @@
 @use "./partials/footer";
 @use "./partials/mixins" as*;
 @use "./partials/hero";
+@use "./partials/buttons-and-labels";
 
 .hero {
     background-image: url('../assets/images/hero-bio.jpg');
+    position: relative;
+    &::after{
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: rgba($primary-dark, $alpha);
+        @include tablet {
+            top: 0;
+            left: 0;
+        }
+    }
 
     &__title {
         font-weight: 600;
@@ -141,5 +154,159 @@
         &:hover {
             filter: none;
         }
+    }
+}
+
+.comments {
+    @include bottom-space;
+    @include top-space;
+    &__container {
+        @include width;
+        margin: 0 auto;
+    }
+
+    &__title {
+        flex-basis: 100%;
+        @include bottom-space;
+    }
+    &__display{
+        width: 100%;
+        max-width: 37.5rem;
+        margin: 0 auto;
+        padding: 0 1rem;
+        @include tablet {
+            padding: 0 2.25rem;
+        }
+        @include desktop {
+            padding: 0;
+            
+        }
+    }
+    
+
+}
+
+.form {
+    display: flex;
+    margin: 0 auto;
+    @include bottom-space;
+    border-bottom: .0625rem solid $secondary-mid;
+    width: 100%;
+    max-width: 37.5rem;
+    padding: 0 1rem 1rem 1rem;
+    @include tablet {
+        padding: 0 2.25rem;
+    }
+    @include desktop {
+        padding: 0 0 1rem 0;
+        
+    }
+
+    &__image {
+        padding-top: 1.25rem;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 1rem;
+    }
+
+    &__avatar {
+        object-fit: cover;
+        object-position: left;
+        height: 2.25rem;
+        width: 2.25rem;
+        border-radius: 50%;
+        @include tablet {
+            height: 3rem;
+            width: 3rem;
+        }
+    }
+
+    &__inputs {
+        width: 100%;
+        @include change-direction;
+    }
+
+    &__label {
+        @include change-direction;
+        @include bottom-space;
+    }
+    &__field{
+        padding: .75rem;
+        font-weight: 600;
+        background-color: $secondary-light;
+        border: .0625rem solid $secondary-mid;
+        border-radius: .25rem;
+
+        &::placeholder {
+            color: $secondary-dark;
+            opacity: 1;
+        }
+        &:active, &:focus {
+            outline-color: $secondary-dark;
+            background: $secondary-light;
+        }
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:active,
+        &:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0 6.25rem $secondary-light inset;
+        }
+
+        &--comment {
+            height: 4.5rem;
+        }
+    }
+
+    &__button {
+        align-self: flex-end;
+    }
+
+}
+
+.comment {    
+    display: flex;
+    padding: 1rem 0;
+    border-bottom: .0625rem solid $secondary-mid;
+    &__info{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    &__image{
+        padding-right: 1rem;
+    }
+    &__avatar {
+        background-color: $secondary-mid;
+        object-fit: cover;
+        object-position: left;
+        height: 2.25rem;
+        width: 2.25rem;
+        border-radius: 50%;
+        @include tablet {
+            height: 3rem;
+            width: 3rem;
+        }
+    }
+    &__name {
+        font-size: .8125rem;
+        line-height: 1.125rem;
+        @include tablet {
+        font-size: .875rem;
+        line-height: 1.375rem;
+        }
+    }
+    &__date {
+        color: $primary-mid;
+        font-size: .8125rem;
+        font-weight: 600;
+        @include tablet {
+            font-size: .875rem;
+        }
+    }
+    &__content {
+        flex-basis: 100%;
+        text-align: justify;
+        padding-top: .5rem;
     }
 }

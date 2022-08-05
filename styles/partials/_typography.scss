@@ -1,6 +1,6 @@
 @use './breakpoints' as*;
 
-body {
+body, input, textarea {
     font-family: "Avenir Next";
 }
 
@@ -34,7 +34,7 @@ h3 {
     }
 }
 
-p, span, a {
+p, span, a, input, textarea {
     font-size: .8125rem;
     line-height: 1.125rem;
     @include tablet {

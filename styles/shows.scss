@@ -19,16 +19,27 @@
     @include tablet {
         min-height: 26rem;
     }
+    &__overlay {
+        background-color: rgba($primary-dark, $alpha);
+        min-height: 10rem;
+        height: 70vw;
+        max-height: 60vh;
+        min-height: 20rem;
+        @include tablet {
+        min-height: 26rem;
+        width: 100%;
+        }
+    }
     
     &__wrapper {
         @include change-direction;
         justify-content: center;
         width: $mobile-edge;
         margin: 0 auto;
-        z-index: 1;
-        @include top-space;
+        // z-index: 1;
         @include bottom-space;
         @include tablet {
+            // z-index: 0;
             width: $tablet-edge;
         }
         @include desktop {

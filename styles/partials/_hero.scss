@@ -4,18 +4,23 @@
 
 .hero {
     background-size: cover;
-    position: relative;
+
     display: flex;
     align-items: center;  
     height: 70vw;
     max-height: 60vh;
+    @include tablet;
     
     
-    &::after{
-        content: "";
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background-color: rgba($primary-dark, $alpha)
-    }
+    // &::after{
+    //     content: "";
+    //     position: absolute;
+    //     height: 100%;
+    //     width: 100%;
+    //     background-color: rgba($primary-dark, $alpha);
+    //     @include tablet {
+    //         top: 0;
+    //         left: 0;
+    //     }
+    // }
 }

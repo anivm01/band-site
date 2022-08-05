@@ -6,7 +6,6 @@
 .header {
     background-color: $primary-dark;
     width: 100%;
-    height: fit-content;
     
     &__wrapper {
         @include change-direction;
@@ -24,9 +23,7 @@
     &__link {
         margin: .75rem 0;
         @include tablet {
-            margin: 0;
-            padding-bottom: 1rem;
-            padding-right: 2rem;
+            margin: 0 2rem 1rem 0;
         }
     }
 }
