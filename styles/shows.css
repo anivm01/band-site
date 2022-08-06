@@ -426,7 +426,6 @@ p, span, a, input, textarea {
 }
 
 .shows {
-  max-width: calc(100% - 2rem);
   margin: 0 auto;
   max-width: calc(100% - 2rem);
 }
@@ -520,11 +519,14 @@ p, span, a, input, textarea {
     align-items: center;
   }
 }
+.show:hover {
+  background-color: #FAFAFA;
+}
 .show--selected {
   background-color: #E1E1E1;
 }
-.show--hovered {
-  background-color: #FAFAFA;
+.show--selected:hover {
+  background-color: #E1E1E1;
 }
 .show__label {
   margin: 0 auto;
@@ -536,18 +538,15 @@ p, span, a, input, textarea {
   }
 }
 .show__date {
-  max-width: calc(100% - 2rem);
   padding-bottom: 1rem;
   font-weight: 600;
   flex-basis: 30%;
 }
 .show__venue {
-  max-width: calc(100% - 2rem);
   padding-bottom: 1rem;
   flex-basis: 20%;
 }
 .show__location {
-  max-width: calc(100% - 2rem);
   padding-bottom: 1rem;
   flex-basis: 25%;
 }

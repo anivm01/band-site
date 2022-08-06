@@ -67,7 +67,6 @@
 }
 
 .shows {
-    max-width: $mobile-edge;
     margin: 0 auto;
     @include width;
 
@@ -85,13 +84,13 @@
 		font-weight: 700;
 		@include top-space;
 		@include bottom-space;
-        
-        
+
         @include tablet {
         padding-left: 1rem;
 		font-size: 2.25rem;
 		line-height: 2.75rem;
         }
+
         @include desktop {
             flex-basis: 25%;
         }
@@ -100,9 +99,11 @@
     &__labels {
         display: none;
         padding: 0 1rem;
+
         @include tablet {
             display: flex;
         }
+        
         @include desktop {
             margin-left: 0;
             flex-basis: 75%;
@@ -137,11 +138,16 @@
         display: flex;
         align-items: center;
     }
+
+    &:hover {
+        background-color: $secondary-light-background;
+    }
+
     &--selected {
         background-color: $divider-outline;
-    }
-    &--hovered {
-        background-color: $secondary-light-background;
+        &:hover {
+            background-color: $divider-outline;
+        }
     }
 
     &__label {
@@ -153,20 +159,17 @@
     }
 
     &__date {
-        max-width: $mobile-edge;
         padding-bottom: 1rem;
         font-weight: 600;
         flex-basis: 30%;
     }
 
     &__venue {
-        max-width: $mobile-edge;
         padding-bottom: 1rem;
         flex-basis: 20%;
     }
 
     &__location {
-        max-width: $mobile-edge;
         padding-bottom: 1rem;
         flex-basis: 25%;
     }

@@ -37,12 +37,7 @@ const shows = [
     }
 ]
 
-const showsSection = document.querySelector(".shows");
-// const showsTitle = document.createElement("h1");
-
-
 // declare a function to create an element and then to give it a class and some inner text.
-
 function buildElements (elType, elClass, elContent) {
     const newEl = document.createElement(elType);
     newEl.classList.add(elClass);
@@ -50,6 +45,10 @@ function buildElements (elType, elClass, elContent) {
     return newEl
 }
 
+//Select the Shows section on the Shows page
+const showsSection = document.querySelector(".shows");
+
+//Create the title for the Shows section
 const showsTitle = buildElements("h1", "shows__title", "Shows");
 showsSection.appendChild(showsTitle);
 
@@ -69,72 +68,59 @@ showsLabels.appendChild(showsLabelLocation);
 showsLabelLocation.classList.add("label");
 
 // create a div to contain all the shows
-
 const showsContainer = buildElements("div", "shows__container", "");
 showsSection.appendChild(showsContainer);
 
-
 // create a function to create individual shows with all elements inside it
-
 function buildShow(singleShow){
+
 //the container
     const showContainer = buildElements("div", "show", "");
     showsContainer.appendChild(showContainer);
+
 //the Date label
     const showLabelDate = buildElements("h4", "show__label", "Date");
     showContainer.appendChild(showLabelDate);
-    showLabelDate.classList.add("label");
+    
 // the date info
     const showDate = buildElements("p", "show__date", singleShow.date);
     showContainer.appendChild(showDate);
 // the Venue label
     const showLabelVenue = buildElements("h4", "show__label", "Venue");
     showContainer.appendChild(showLabelVenue);
-    showLabelVenue.classList.add("label");
+    
 // the Venue info
     const showVenue = buildElements("p", "show__venue", singleShow.venue);
     showContainer.appendChild(showVenue);
+
 // the Location label
     const showLabelLocation = buildElements("h4", "show__label", "Location");
     showContainer.appendChild(showLabelLocation);
-    showLabelLocation.classList.add("label");
+
 // the Location info
     const showLocation = buildElements("p", "show__location", singleShow.location);
     showContainer.appendChild(showLocation);
+    
 // the button
     const buyTickets = buildElements("a", "show__button", "Buy Tickets");
-    showContainer.appendChild(buyTickets);   
-    buyTickets.classList.add("button") 
+    showContainer.appendChild(buyTickets);
+
+// add secondary classes on buttons and labels
+    buyTickets.classList.add("button");
+    const labels = document.querySelectorAll(".show__label");
+    labels.forEach((label)=>{label.classList.add("label")});
 }
 
 // create a for loop to loop through the shows array and build out each show using the buildShow function
-
 for (const show of shows) {
     buildShow(show);
 }
 
-//create event listener for hover on show elements
-
+//create event listener for to add "selected" on show elements
 const show = document.querySelectorAll(".show");
-
-show.forEach ((oneShow)=>{
-    oneShow.addEventListener("mouseover", () => {
-        if (oneShow.classList.contains("show--selected") === false)
-        oneShow.classList.add("show--hovered");
-    })
-    oneShow.addEventListener("mouseout", () => {
-        oneShow.classList.remove("show--hovered");
-    })
-});
-
-
 show.forEach ((oneShow)=>{
     oneShow.addEventListener ("click", ()=>{
-        show.forEach((selectedShow)=>{
-            selectedShow.classList.remove("show--selected")
-        })
-        oneShow.classList.toggle("show--selected")
+        show.forEach((selectedShow)=>{selectedShow.classList.remove("show--selected")})
+        oneShow.classList.add("show--selected")
     })
-    
 });
-
