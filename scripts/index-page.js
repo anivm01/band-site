@@ -46,7 +46,7 @@ function displayArray () {
         comment.appendChild(commentInfo);
         const commentAvatar = makeElement("img", "comment__avatar");
         commentImage.appendChild(commentAvatar);
-        const commentName = makeElement("h3", "comment__name");
+        const commentName = makeElement("p", "comment__name");
         commentName.innerText = singleComment.name;
         commentInfo.appendChild(commentName);
         const commentDate = makeElement("span", "comment__date");
@@ -64,6 +64,22 @@ function displayArray () {
 // invoke the displayArray function so the default comments will be displayed when the page loads
 displayArray ();
 
+function getTimestamp (){
+    const today = new Date();
+    let day = today.getDate();
+    let month = today.getMonth() + 1;
+    let year = today.getFullYear();
+    if (day < 10) {
+        day = `0${day}`;
+    }
+    if (month < 10) {
+        month = `0${month}`
+    }
+    const date = `${month}/${day}/${year}`;
+    return date
+}
+
+
 
 // create an event listener on form submission
 
@@ -73,11 +89,7 @@ form.addEventListener("submit", (event)=>{
     const nameInput = event.target.name.value;
     const commentInput = event.target.comment.value;
     const img = event.target.childNodes[1].childNodes[1].src;
-    const today = new Date();
-    const day = today.getDate();
-    const month = today.getMonth() + 1;
-    const year = today.getFullYear();
-    const date = `${month}/${day}/${year}`;
+    const date = getTimestamp();
     const newComment = {
         name: nameInput,
         comment: commentInput,
@@ -87,4 +99,5 @@ form.addEventListener("submit", (event)=>{
     comments.unshift(newComment);
     commentsDisplay.innerHTML = "";
     displayArray();
+    form.reset();
 })

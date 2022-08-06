@@ -12,31 +12,16 @@
 
 .hero {
     background-image: url('../assets/images/hero-bio.jpg');
-    position: relative;
-    &::after{
-        content: "";
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        background-color: rgba($primary-dark, $alpha);
-        @include tablet {
-            top: 0;
-            left: 0;
-        }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
     }
 
     &__title {
         font-weight: 600;
-        width: $mobile-edge;
-        color: $primary-light;
-        z-index: 1;
-        margin: 0 auto;
-        @include tablet {
-            width: $tablet-edge;
-        }
-        @include desktop {
-            width: $desktop-width;
-        }
+        @include width;
+        color: $primary-light-text;
     }
 }
 
@@ -115,7 +100,7 @@
 }
 
 .gallery {
-    background-color: $secondary-light;
+    background-color: $secondary-light-background;
     @include tablet {
         padding-bottom: 1rem;
     }
@@ -158,8 +143,8 @@
 }
 
 .comments {
-    @include bottom-space;
-    @include top-space;
+    padding: 1rem 0;
+    
     &__container {
         @include width;
         margin: 0 auto;
@@ -171,35 +156,22 @@
     }
     &__display{
         width: 100%;
-        max-width: 37.5rem;
         margin: 0 auto;
-        padding: 0 1rem;
+        padding-bottom: 1rem;
         @include tablet {
-            padding: 0 2.25rem;
-        }
-        @include desktop {
-            padding: 0;
-            
+            max-width: 37.5rem;
         }
     }
-    
-
 }
 
 .form {
     display: flex;
     margin: 0 auto;
-    @include bottom-space;
-    border-bottom: .0625rem solid $secondary-mid;
+    border-bottom: .0625rem solid $divider-outline;
     width: 100%;
-    max-width: 37.5rem;
-    padding: 0 1rem 1rem 1rem;
+    padding-bottom: 1rem;
     @include tablet {
-        padding: 0 2.25rem;
-    }
-    @include desktop {
-        padding: 0 0 1rem 0;
-        
+        max-width: 37.5rem;
     }
 
     &__image {
@@ -233,27 +205,32 @@
     &__field{
         padding: .75rem;
         font-weight: 600;
-        background-color: $secondary-light;
-        border: .0625rem solid $secondary-mid;
+        background-color: $secondary-light-background;
+        border: .0625rem solid $divider-outline;
         border-radius: .25rem;
+        @include tablet {
+            padding: 1rem;
+        }
 
         &::placeholder {
-            color: $secondary-dark;
+            color: $cta-hover;
             opacity: 1;
         }
         &:active, &:focus {
-            outline-color: $secondary-dark;
-            background: $secondary-light;
+            outline-color: $cta-hover;
+            background: $secondary-light-background;
         }
         &:-webkit-autofill,
         &:-webkit-autofill:hover,
         &:-webkit-autofill:active,
         &:-webkit-autofill:focus {
-            -webkit-box-shadow: 0 0 0 6.25rem $secondary-light inset;
+            box-shadow: 0 0 0 6.25rem $secondary-light-background inset;
+            -webkit-box-shadow: 0 0 0 6.25rem $secondary-light-background inset;
         }
 
         &--comment {
-            height: 4.5rem;
+            height: 5rem;
+            resize: none;
         }
     }
 
@@ -266,7 +243,7 @@
 .comment {    
     display: flex;
     padding: 1rem 0;
-    border-bottom: .0625rem solid $secondary-mid;
+    border-bottom: .0625rem solid $divider-outline;
     &__info{
         width: 100%;
         display: flex;
@@ -277,7 +254,7 @@
         padding-right: 1rem;
     }
     &__avatar {
-        background-color: $secondary-mid;
+        background-color: $divider-outline;
         object-fit: cover;
         object-position: left;
         height: 2.25rem;
@@ -291,13 +268,14 @@
     &__name {
         font-size: .8125rem;
         line-height: 1.125rem;
+        font-weight: 600;
         @include tablet {
         font-size: .875rem;
         line-height: 1.375rem;
         }
     }
     &__date {
-        color: $primary-mid;
+        color: $secondary-text;
         font-size: .8125rem;
         font-weight: 600;
         @include tablet {

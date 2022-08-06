@@ -2,14 +2,36 @@
 @use "./breakpoints" as *;
 @use "./mixins" as *;
 
-.hero {
-    background-size: cover;
 
-    display: flex;
-    align-items: center;  
+@mixin hero-height{
     height: 70vw;
     max-height: 60vh;
-    @include tablet;
+    min-height: 22rem;
+}
+
+.hero {
+    @include hero-height; 
+    background-size: cover;
+    width: 100%;
+     
+    &__overlay {
+        background-color: rgba($primary-dark-background, $alpha);
+        @include hero-height; 
+        width: 100%;
+    }
+
+    &__wrapper {
+        @include hero-height;
+        width: $mobile-edge;
+        margin: 0 auto;
+
+        @include tablet {
+            width: $tablet-edge;
+        }
+        @include desktop {
+            width: $desktop-width;
+        }
+    }
     
     
     // &::after{

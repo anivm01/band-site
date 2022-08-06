@@ -58,13 +58,13 @@ const showsLabels = buildElements("div", "shows__labels", "");
 showsSection.appendChild(showsLabels);
 
 // Add labels into the labes bar
-const showsLabelDate = buildElements("h4", "shows__label", "Date");
+const showsLabelDate = buildElements("h4", "shows__date", "Date");
 showsLabels.appendChild(showsLabelDate);
 showsLabelDate.classList.add("label");
-const showsLabelVenue = buildElements("h4", "shows__label", "Venue");
+const showsLabelVenue = buildElements("h4", "shows__venue", "Venue");
 showsLabels.appendChild(showsLabelVenue);
 showsLabelVenue.classList.add("label");
-const showsLabelLocation = buildElements("h4", "shows__label", "Location");
+const showsLabelLocation = buildElements("h4", "shows__location", "Location");
 showsLabels.appendChild(showsLabelLocation);
 showsLabelLocation.classList.add("label");
 
@@ -85,22 +85,21 @@ function buildShow(singleShow){
     showContainer.appendChild(showLabelDate);
     showLabelDate.classList.add("label");
 // the date info
-    const showDate = buildElements("p", "show__info", singleShow.date);
+    const showDate = buildElements("p", "show__date", singleShow.date);
     showContainer.appendChild(showDate);
-    showDate.classList.add("show__info--date");
 // the Venue label
     const showLabelVenue = buildElements("h4", "show__label", "Venue");
     showContainer.appendChild(showLabelVenue);
     showLabelVenue.classList.add("label");
 // the Venue info
-    const showVenue = buildElements("p", "show__info", singleShow.venue);
+    const showVenue = buildElements("p", "show__venue", singleShow.venue);
     showContainer.appendChild(showVenue);
 // the Location label
     const showLabelLocation = buildElements("h4", "show__label", "Location");
     showContainer.appendChild(showLabelLocation);
     showLabelLocation.classList.add("label");
 // the Location info
-    const showLocation = buildElements("p", "show__info", singleShow.location);
+    const showLocation = buildElements("p", "show__location", singleShow.location);
     showContainer.appendChild(showLocation);
 // the button
     const buyTickets = buildElements("a", "show__button", "Buy Tickets");
@@ -113,3 +112,29 @@ function buildShow(singleShow){
 for (const show of shows) {
     buildShow(show);
 }
+
+//create event listener for hover on show elements
+
+const show = document.querySelectorAll(".show");
+
+show.forEach ((oneShow)=>{
+    oneShow.addEventListener("mouseover", () => {
+        if (oneShow.classList.contains("show--selected") === false)
+        oneShow.classList.add("show--hovered");
+    })
+    oneShow.addEventListener("mouseout", () => {
+        oneShow.classList.remove("show--hovered");
+    })
+});
+
+
+show.forEach ((oneShow)=>{
+    oneShow.addEventListener ("click", ()=>{
+        show.forEach((selectedShow)=>{
+            selectedShow.classList.remove("show--selected")
+        })
+        oneShow.classList.toggle("show--selected")
+    })
+    
+});
+

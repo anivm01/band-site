@@ -3,17 +3,18 @@
 @use './mixins'as*;
 
 .footer {
-    background-color: $primary-dark;
-    color: $primary-light;
-    padding-top: 1rem;
-    @include bottom-space;
+    background-color: $primary-dark-background;
+    
+    padding: 1rem 0 1rem 0;
+    @include tablet{
+        padding: 2rem 0 2rem 0;
+    }
 
     &__wrapper {
-        @include change-direction;
         @include width;
         margin: 0 auto;
         @include tablet {
-            flex-direction: row;
+            display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: baseline;
@@ -21,8 +22,10 @@
     }
 
     &__title {
-        @include top-space;
+        color: $primary-light-text;
+        padding: 1rem 0 1rem 0;
         @include tablet {
+            padding: 3rem 0 1rem 0;
             flex-basis: 34.5%;
             max-width: 17rem;
             order: -1;
@@ -30,16 +33,15 @@
     }
 
     &__socials {
-        @include top-space;
         @include tablet {
             order: -1;
         }
     }
 
     &__contacts {
+        color: $primary-light-text;
         width: 100%;
-        @include top-space;
-        margin-bottom: 2rem;
+        padding: 1rem 0 2rem 0; //margin?
         @include tablet {
             display: flex;
             justify-content: space-between;
@@ -48,8 +50,9 @@
     }
 
     &__logo {
-        @include top-space;
+        padding-top: 1rem;
         @include tablet{
+            padding-top: 3rem;
             flex-basis: 7.5rem;
             order: -1;
             margin-left: auto;
@@ -57,9 +60,10 @@
     }
 
     &__copyright {
+        color: $primary-light-text;
         font-weight: 600;
         font-size: .625rem;
-        padding-top: .5rem;
+        padding-top: 1rem;
         @include tablet{
             flex-basis: 100%;
             font-size: .875rem;
@@ -77,32 +81,36 @@
 }
 
 .agency {
+    color: $primary-light-text;
     @include tablet {
     flex-basis: 16rem;
 
     &:nth-child(2){
-            margin-left: 1rem;
-            margin-right: 1rem;
+            margin-left: 1rem 0 1rem 0;
         }
     }
 
     &__person {
+        color: $primary-light-text;
         font-weight: 600;
     }
 
     &__line {
+        color: $primary-light-text;
         margin-top: 1rem;
         @include tablet {
             margin-top: 2rem;
         }
     }
+    &__address {
+        color: $primary-light-text;
+    }
 
     &__email {
         display: block;
-        color: $primary-light;
+        color: $primary-light-text;
         width: 100%;
-        margin-bottom: 1rem;
-        margin-top: 1rem;
+        margin: 1rem 0 1rem 0;
         @include tablet {
             margin-top: 2rem;
         }

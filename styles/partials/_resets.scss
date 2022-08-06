@@ -1,3 +1,4 @@
+@use "./colors" as *;
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -12,4 +13,5 @@ ul {
 
 body, h1, h2, h3, h4, p, ul {
     margin: 0;
+    color: $primary-dark-text;
 }

@@ -12,84 +12,55 @@
 
 .hero {
     background-image: url('../assets/images/hero-shows.jpg');
-    min-height: 10rem;
-    height: 70vw;
-    max-height: 60vh;
-    min-height: 20rem;
-    @include tablet {
-        min-height: 26rem;
-    }
-    &__overlay {
-        background-color: rgba($primary-dark, $alpha);
-        min-height: 10rem;
-        height: 70vw;
-        max-height: 60vh;
-        min-height: 20rem;
-        @include tablet {
-        min-height: 26rem;
-        width: 100%;
-        }
-    }
     
     &__wrapper {
-        @include change-direction;
+        display: flex;
+        flex-direction: column;
         justify-content: center;
-        width: $mobile-edge;
-        margin: 0 auto;
-        // z-index: 1;
-        @include bottom-space;
-        @include tablet {
-            // z-index: 0;
-            width: $tablet-edge;
-        }
+        padding: 1rem 0;
         @include desktop {
-            width: $desktop-width;
             flex-direction: row;
-            align-items: flex-end;
+            align-items: center;
             justify-content: space-between;
         }
     }
 
     &__text {
         @include change-direction;
-        
     }
+    
     &__title {
         font-size: 1.5rem;
         line-height: 2rem;
         width: 16ch;
         font-weight: 600;
-        color: $primary-light;
-        @include top-space;
-        @include bottom-space;
-
+        color: $primary-light-text;
+        margin-top: 1rem;
         @include tablet {
             font-size: 3.75rem;
             line-height: 4.25rem;
         }
-
         @include desktop {
             width: 13ch;
-            padding-top: 2rem;
         }
     }
+
     &__subtitle {
-        @include top-space;
         font-weight: 600;
-        color: $primary-light;
+        color: $primary-light-text;
     }
 
     &__embed {
         height: 8rem;
         width: 100%;
-        @include bottom-space;
+        margin-top: 1rem;
 
        @include tablet {
+        margin-top: 2rem;
         width: 60%;
        }
 
        @include desktop {
-        height: 10rem;
         width: 38%;
        }
     }
@@ -98,6 +69,7 @@
 .shows {
     max-width: $mobile-edge;
     margin: 0 auto;
+    @include width;
 
     @include desktop {
         display: flex;
@@ -114,6 +86,7 @@
 		@include top-space;
 		@include bottom-space;
         
+        
         @include tablet {
         padding-left: 1rem;
 		font-size: 2.25rem;
@@ -126,24 +99,26 @@
 
     &__labels {
         display: none;
+        padding: 0 1rem;
         @include tablet {
-            padding: 1rem;
             display: flex;
         }
         @include desktop {
+            margin-left: 0;
             flex-basis: 75%;
         }
     }
 
-    &__label {
-        @include tablet{
-            font-weight: 600;
-            flex-basis: 25%;
-            &:last-child {
-                flex-basis: 50%;
-            }
-        }
-        
+    &__date {
+        flex-basis: 30%;
+    }
+
+    &__venue {
+        flex-basis: 20%;
+    }
+
+    &__location {
+        flex-basis: 50%;
     }
 
     &__container {
@@ -154,12 +129,19 @@
 }
 
 .show {
-    border-bottom: .0625rem solid $secondary-mid;
-    padding-bottom: 1rem;
+    border-bottom: .0625rem solid $divider-outline;
+    padding: 1rem 0;
+    cursor: pointer;
     @include tablet {
-        padding: 1rem;
+        padding: 1.5rem 1.125rem;
         display: flex;
         align-items: center;
+    }
+    &--selected {
+        background-color: $divider-outline;
+    }
+    &--hovered {
+        background-color: $secondary-light-background;
     }
 
     &__label {
@@ -170,21 +152,29 @@
         }
     }
 
-    &__info {
+    &__date {
         max-width: $mobile-edge;
         padding-bottom: 1rem;
-        @include tablet {
-            flex-basis: 25%;
-            padding-bottom: 0;
-        }
+        font-weight: 600;
+        flex-basis: 30%;
+    }
 
-        &--date {
-            font-weight: 600;
-        }
+    &__venue {
+        max-width: $mobile-edge;
+        padding-bottom: 1rem;
+        flex-basis: 20%;
+    }
+
+    &__location {
+        max-width: $mobile-edge;
+        padding-bottom: 1rem;
+        flex-basis: 25%;
     }
 
     &__button {
-        @include width;
-        margin: 0 auto;
+        @include tablet {
+            flex-basis: 25%;
+            min-width: 9.375rem;
+        }
     }
 }

@@ -4,7 +4,7 @@
 
 .label {
     text-transform: uppercase;
-    color: $primary-mid;
+    color: $secondary-text;
     font-size: .625rem;
     line-height: 1.25rem;
     font-weight: 700;
@@ -14,18 +14,20 @@
     display: block;
     text-transform: uppercase;
     text-align: center;
-    font-size: 1rem;
+    font-size: .625rem;
     line-height: 1.25rem;
-    font-weight: 600;
-    background-color: $primary-dark;
-    color: $primary-light;
-    padding-top: .825rem;
-    padding-bottom: .625rem;
+    font-weight: 700;
+    background-color: $primary-dark-background;
+    color: $primary-light-text;
+    padding: .825rem 1.875rem .625rem 1.875rem;
     border-radius: .25rem;
     border: none;
     width: 100%;
+    @include tablet {
+        font-size: .75rem;
+    }
 
-    @include tablet{
-        width: 10rem;
+    &:hover{
+        background-color: $cta-hover;
     }
 }
