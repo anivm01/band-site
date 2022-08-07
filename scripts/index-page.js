@@ -36,7 +36,7 @@ commentsContainer.appendChild(commentsDisplay);
 // declare a function to create elements for the objects inside the array using makeElement and 
 // append the objects inside the array to the page
 
-function displayArray () {
+function displayComments () {
     for (const singleComment of comments) {
         const comment = makeElement("div", "comment");
         commentsDisplay.appendChild(comment);
@@ -62,7 +62,7 @@ function displayArray () {
 }
 
 // invoke the displayArray function so the default comments will be displayed when the page loads
-displayArray ();
+displayComments ();
 
 function getTimestamp (){
     const today = new Date();
@@ -98,6 +98,6 @@ form.addEventListener("submit", (event)=>{
     }
     comments.unshift(newComment);
     commentsDisplay.innerHTML = "";
-    displayArray();
+    displayComments();
     form.reset();
 })
