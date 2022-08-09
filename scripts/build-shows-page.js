@@ -1,43 +1,7 @@
-const shows = [
-    {
-        date: "Mon Sept 06 2021",
-        venue: "Ronald Lane",
-        location: "San Francisco, CA",
-        ticketLink: "#"
-    },
-    {
-        date: "Tue Sept 21 2021",
-        venue: "Pier 3 East",
-        location: "San Francisco, CA",
-        ticketLink: "#"
-    },
-    {
-        date: "Fri Oct 15 2021",
-        venue: "View Lounge",
-        location: "San Francisco, CA",
-        ticketLink: "#"
-    },
-    {
-        date: "Sat Nov 06 2021",
-        venue: "Hyatt Agency",
-        location: "San Francisco, CA",
-        ticketLink: "#"
-    },
-    {
-        date: "Fri Nov 26 2021",
-        venue: "Moscow Center",
-        location: "San Francisco, CA",
-        ticketLink: "#"
-    },
-    {
-        date: "Wed Dec 15 2021",
-        venue: "Press Club",
-        location: "San Francisco, CA",
-        ticketLink: "#"
-    }
-]
+const bandSiteAPIKey = "381ccfd6-5fb2-4e56-95dd-10a0b20db8f2";
 
 // declare a function to create an element and then to give it a class and some inner text.
+
 function buildElements (elType, elClass, elContent) {
     const newEl = document.createElement(elType);
     newEl.classList.add(elClass);
@@ -67,6 +31,28 @@ const showsLabelLocation = buildElements("h4", "shows__location", "Location");
 showsLabels.appendChild(showsLabelLocation);
 showsLabelLocation.classList.add("label");
 
+//declare a function to convert the dates from miliseconds into Day Month Date Year format
+const convertDate = (date) => {
+    let fullDate = new Date(date);
+    
+    const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    let day = days[fullDate.getDay()];
+
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
+    let month = months[fullDate.getMonth()];
+
+    let dayNumber = fullDate.getDate();
+    
+    let year = fullDate.getFullYear();
+    if (dayNumber < 10) {
+        dayNumber = `0${dayNumber}`;
+    }
+
+    fullDate = `${day} ${month} ${dayNumber} ${year}`;
+    return fullDate
+}
+
+
 // create a div to contain all the shows
 const showsContainer = buildElements("div", "shows__container", "");
 showsSection.appendChild(showsContainer);
@@ -83,14 +69,15 @@ function buildShow(singleShow){
     showContainer.appendChild(showLabelDate);
     
 // the date info
-    const showDate = buildElements("p", "show__date", singleShow.date);
+    const dateText = convertDate(singleShow.date)
+    const showDate = buildElements("p", "show__date", dateText);
     showContainer.appendChild(showDate);
 // the Venue label
     const showLabelVenue = buildElements("h4", "show__label", "Venue");
     showContainer.appendChild(showLabelVenue);
     
 // the Venue info
-    const showVenue = buildElements("p", "show__venue", singleShow.venue);
+    const showVenue = buildElements("p", "show__venue", singleShow.place);
     showContainer.appendChild(showVenue);
 
 // the Location label
@@ -111,16 +98,28 @@ function buildShow(singleShow){
     labels.forEach((label)=>{label.classList.add("label")});
 }
 
-// create a for loop to loop through the shows array and build out each show using the buildShow function
-for (const show of shows) {
-    buildShow(show);
-}
+axios
+    .get("https://project-1-api.herokuapp.com/showdates?api_key="+bandSiteAPIKey)
+    .then( (response)=>{
+        const shows = response.data
+        for (const show of shows) {
+            buildShow(show);
+        }
+        const showToSelect = document.querySelectorAll(".show");
+        console.log(showToSelect);
+    })
+    .catch(()=>{
+        const showsError = buildElements("p", "shows__error", "Oh no! Gremlin's got your data, please refresh and try again!");
+        showsSection.appendChild(showsError);
+    })
+
 
 //create event listener for to add "selected" on show elements
-const show = document.querySelectorAll(".show");
-show.forEach ((oneShow)=>{
-    oneShow.addEventListener ("click", ()=>{
-        show.forEach((selectedShow)=>{selectedShow.classList.remove("show--selected")})
-        oneShow.classList.add("show--selected")
-    })
-});
+// const show = document.querySelectorAll(".show");
+// console.log(show);
+// show.forEach ((oneShow)=>{
+//     oneShow.addEventListener ("click", ()=>{
+//         show.forEach((selectedShow)=>{selectedShow.classList.remove("show--selected")})
+//         oneShow.classList.add("show--selected")
+//     })
+// });
