@@ -107,19 +107,14 @@ axios
         }
         const showToSelect = document.querySelectorAll(".show");
         console.log(showToSelect);
+        showToSelect.forEach ((oneShow)=>{
+                oneShow.addEventListener ("click", ()=>{
+                showToSelect.forEach((selectedShow)=>{selectedShow.classList.remove("show--selected")})
+                oneShow.classList.add("show--selected")
+                })
+            });
     })
     .catch(()=>{
         const showsError = buildElements("p", "shows__error", "Oh no! Gremlin's got your data, please refresh and try again!");
         showsSection.appendChild(showsError);
     })
-
-
-//create event listener for to add "selected" on show elements
-// const show = document.querySelectorAll(".show");
-// console.log(show);
-// show.forEach ((oneShow)=>{
-//     oneShow.addEventListener ("click", ()=>{
-//         show.forEach((selectedShow)=>{selectedShow.classList.remove("show--selected")})
-//         oneShow.classList.add("show--selected")
-//     })
-// });
