@@ -115,6 +115,12 @@ axios
             });
     })
     .catch(()=>{
-        const showsError = buildElements("p", "shows__error", "Oh no! Gremlin's got your data, please refresh and try again!");
-        showsSection.appendChild(showsError);
+        const showsErrorContainer = buildElements("div", "error", "");
+        showsContainer.appendChild(showsErrorContainer);
+        const showsErrorImg = buildElements("img", "error__image", "");
+        showsErrorImg.setAttribute("src", "../assets/logos/error-gremlin.svg");
+        showsErrorContainer.appendChild(showsErrorImg);
+        const showsError = buildElements("p", "error__text", "Oh no! Gremlins got our data, please come back later!");
+        showsErrorContainer.appendChild(showsError);
+        
     })

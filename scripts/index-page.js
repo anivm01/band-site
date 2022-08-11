@@ -29,43 +29,50 @@ function getTimestamp (timestamp){
     return date
 }
 
-//declare a function to display all the comments
-function displayComments (comments) {
-    comments.sort((a,b) => {
-        return b.timestamp - a.timestamp
-    })
-    for (const singleComment of comments) {
-        const comment = makeElement("div", "comment");
-        commentsDisplay.appendChild(comment);
+//declare a function to display a single comment
+function displayComments (comment) {
+        commentBlock = makeElement("div", "comment");
+        commentsDisplay.appendChild(commentBlock);
         const commentImage = makeElement("div", "comment__image");
-        comment.appendChild(commentImage);
+        commentBlock.appendChild(commentImage);
         const commentInfo = makeElement("div", "comment__info");
-        comment.appendChild(commentInfo);
+        commentBlock.appendChild(commentInfo);
         const commentAvatar = makeElement("img", "comment__avatar");
         commentImage.appendChild(commentAvatar);
         const commentName = makeElement("p", "comment__name");
-        commentName.innerText = singleComment.name;
+        commentName.innerText = comment.name;
         commentInfo.appendChild(commentName);
         const commentDate = makeElement("span", "comment__date");
         commentInfo.appendChild(commentDate);
-        commentDate.innerText = getTimestamp(singleComment.timestamp);
+        commentDate.innerText = getTimestamp(comment.timestamp);
         const commentContent = makeElement("p", "comment__content");
-        commentContent.innerText = singleComment.comment;
+        commentContent.innerText = comment.comment;
         commentInfo.appendChild(commentContent);
-    }    
+    // }    
 }
 
-//declare a function to fetch the comments from the api and use displayComments to them on the page
+//declare a function to fetch the comments from the api and use displayComments to put them on the page
 const fetchComments = () => {
     axios 
     .get("https://project-1-api.herokuapp.com/comments?api_key="+bandSiteAPIKey)
     .then(response=>{
         console.log(response);
         const commentsArray = response.data;
-        displayComments (commentsArray);
+        commentsArray.sort((a,b) => {
+            return b.timestamp - a.timestamp
+        })
+        commentsArray.forEach((comment)=>{
+            displayComments (comment);
+        })
     })
-    .catch(error => {
-        console.log(error);
+    .catch(() => {
+        const showsErrorContainer = makeElement("div", "error", "");
+        showsContainer.appendChild(showsErrorContainer);
+        const showsErrorImg = makeElement("img", "error__image", "");
+        showsErrorImg.setAttribute("src", "../assets/logos/error-gremlin.svg");
+        showsErrorContainer.appendChild(showsErrorImg);
+        const showsError = makeElement("p", "error__text", "Oh no! Gremlins got our data, please come back later!");
+        showsErrorContainer.appendChild(showsError);;
     })
 }
 
@@ -84,7 +91,7 @@ form.addEventListener("submit", (event)=>{
             comment: event.target.comment.value
         })
         .then((response)=>{
-            commentsDisplay.innerHTML = "";
+            commentsDisplay.replaceChildren();
             fetchComments(response);
             form.reset();            
         })
