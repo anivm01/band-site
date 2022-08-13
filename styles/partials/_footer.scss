@@ -4,20 +4,26 @@
 
 .footer {
     background-color: $primary-dark-background;
-    
-    padding: 1rem 0 1rem 0;
-    @include tablet{
-        padding: 2rem 0 2rem 0;
+    padding-bottom: 1rem;
+    @include tablet {
+        padding-bottom: 2rem;
     }
 
     &__wrapper {
-        @include width;
-        margin: 0 auto;
+        padding: 0 1rem;
+
         @include tablet {
+            padding: 0 2.25rem;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: baseline;
+        }
+
+        @include desktop {
+            padding: 0;
+            max-width: 65rem;
+            margin: 0 auto;
         }
     }
 
@@ -26,8 +32,8 @@
         padding: 1rem 0 1rem 0;
         @include tablet {
             padding: 3rem 0 1rem 0;
-            flex-basis: 34.5%;
-            max-width: 17rem;
+            flex-basis: 33.5%;
+            max-width: 16.5rem;
             order: -1;
         }
     }
@@ -41,7 +47,7 @@
     &__contacts {
         color: $primary-light-text;
         width: 100%;
-        padding: 1rem 0 2rem 0; //margin?
+        padding: 1rem 0 2rem 0;
         @include tablet {
             display: flex;
             justify-content: space-between;

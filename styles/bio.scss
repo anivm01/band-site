@@ -1,37 +1,71 @@
+@use "./partials/header";
 @use "./partials/resets";
 @use "./partials/fonts";
-@use "./partials/breakpoints" as*;
 @use "./partials/typography";
-@use "./partials/colors" as*;
-@use "./partials/header";
-@use "./partials/logo";
+@use "./partials/colors" as *;
+@use "./partials/breakpoints" as *;
 @use "./partials/footer";
-@use "./partials/mixins" as*;
-@use "./partials/hero";
 @use "./partials/buttons-and-labels";
 
 .hero {
-    background-image: url('../assets/images/hero-bio.jpg');
-
-    &__wrapper {
-        display: flex;
-        align-items: center;
+    background-image: url("../assets/images/hero-bio.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 70vw;
+    max-height: 60vh;
+    min-height: 15rem;
+    @include tablet {
+        min-height: 28rem;
+    }
+    
+    &__overlay {
+        background-color: rgba($primary-dark-background, $alpha); 
+        width: 100%;
+        height: 70vw;
+        max-height: 60vh;
+        min-height: 15rem;
+        @include tablet {
+            min-height: 28rem;
+        }
     }
 
+    &__wrapper {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        height: 70vw;
+        max-height: 60vh;
+        min-height: 15rem;
+        padding: 0 1rem;
+
+        @include tablet {
+            min-height: 28rem;
+            padding: 0 2.25rem;
+        }
+
+        @include desktop {
+            padding: 0;
+            max-width: 65rem;
+        }
+    }
     &__title {
-        font-weight: 600;
-        @include width;
         color: $primary-light-text;
     }
 }
 
 .about {
     width: 100%;
-    @include change-direction;
     align-items: center;
-    
     &__container{
-        @include width;
+        padding: 1rem;
+        @include tablet {
+            padding: 2rem 2.25rem;
+        }
+        @include desktop {
+            padding: 2rem 0;
+            max-width: 65rem;
+            margin: 0 auto;
+        }
     }
     
     &__wrapper{
@@ -49,21 +83,23 @@
     }
 
     &__column {
-        @include bottom-space;
         flex-basis: 48%;
+        padding-bottom: 1rem;
     }
 
     &__title {
         font-weight: 600;
-        @include top-space;
-        @include bottom-space;
+        margin-top: .5rem;
     }
 
     &__img {
         display: block;
         width: 100%;
         aspect-ratio: 16/9;
-        @include bottom-space;
+        margin: .5rem 0 1rem 0; 
+        @include tablet {
+            margin: 1rem 0 1.5rem 0;
+        }
     }
 
     &__quote{
@@ -86,7 +122,7 @@
     &__source{
         font-weight: 600;
         font-size: 1rem;
-        padding-top: .5rem;
+        margin: .5rem 0;
         line-height: 1.5rem;
         @include tablet {
             font-weight: 700;
@@ -94,31 +130,44 @@
     }
 
     &__subtitle {
-        @include top-space;
-        @include bottom-space;
+        margin: 1.5rem 0 .75rem 0;
+        @include tablet {
+            margin: 3rem 0 1.5rem 0;
+        }
     } 
 }
 
 .gallery {
     background-color: $secondary-light-background;
     @include tablet {
-        padding-bottom: 1rem;
+        padding-bottom: 1.25rem;
+    }
+    @include desktop {
+        padding-bottom: .75rem;
     }
 
     &__wrapper {
-        @include width;
-        margin: 0 auto;
+        padding: 0 1rem;
+        @include tablet {
+            padding: 0 2.25rem;
+        }
+        @include desktop {
+            padding: 0;
+            max-width: 65rem;
+            margin: 0 auto;
+        }
     }
 
     &__title {
-        @include top-space;
-        @include bottom-space;
+        padding: 1rem 0 .5rem 0;
+        @include tablet {
+            padding: 3rem 0 2rem 0;
+        }
     }
 
     &__photogrid {
-        @include change-direction;
         @include tablet {
-            flex-direction: row;
+            display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
         }
@@ -146,14 +195,25 @@
     padding: 1rem 0;
     
     &__container {
-        @include width;
-        margin: 0 auto;
+        padding: 0 1rem;
+        @include tablet {
+            padding: 0 2.25rem;
+        }
+        @include desktop {
+            padding: 0;
+            max-width: 65rem;
+            margin: 0 auto;
+        }
     }
 
     &__title {
         flex-basis: 100%;
-        @include bottom-space;
+        margin-bottom: 1rem;
+        @include tablet {
+            margin: 3rem 0 2rem 0;
+        }
     }
+
     &__display{
         width: 100%;
         margin: 0 auto;
@@ -196,16 +256,17 @@
 
     &__inputs {
         width: 100%;
-        @include change-direction;
+        display: flex;
+        flex-direction: column;
     }
 
     &__label {
-        @include change-direction;
-        @include bottom-space;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
     }
     &__field{
         padding: .75rem;
-        font-weight: 600;
         background-color: $secondary-light-background;
         border: .0625rem solid $divider-outline;
         border-radius: .25rem;
@@ -281,7 +342,6 @@
     &__date {
         color: $secondary-text;
         font-size: .8125rem;
-        font-weight: 600;
         @include tablet {
             font-size: .875rem;
         }
