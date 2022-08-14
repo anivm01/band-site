@@ -446,7 +446,7 @@ p, span, a, input, textarea {
   .shows {
     max-width: 67rem;
     padding: 0;
-    margin: 0 auto;
+    margin: 2rem auto 0 auto;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -492,24 +492,26 @@ p, span, a, input, textarea {
     flex-basis: calc(100% - 17rem);
   }
 }
-.shows__date {
-  flex-basis: 30%;
+@media screen and (min-width: 768px) {
+  .shows__date {
+    flex-basis: 30%;
+  }
 }
 @media screen and (min-width: 1280px) {
   .shows__date {
-    flex-basis: calc(75% - 16rem);
+    margin-right: 0;
+    flex-basis: calc(70% - 17.75rem);
   }
 }
-.shows__venue {
-  flex-basis: 20%;
+@media screen and (min-width: 768px) {
+  .shows__venue {
+    flex-basis: 20%;
+  }
 }
 @media screen and (min-width: 1280px) {
   .shows__venue {
-    flex-basis: 13rem;
+    flex-basis: 10.25rem;
   }
-}
-.shows__location {
-  flex-basis: 50%;
 }
 @media screen and (min-width: 1280px) {
   .shows__container {
@@ -551,7 +553,11 @@ p, span, a, input, textarea {
 .show__date {
   padding-bottom: 1rem;
   font-weight: 600;
-  flex-basis: 30%;
+}
+@media screen and (min-width: 768px) {
+  .show__date {
+    flex-basis: 30%;
+  }
 }
 @media screen and (min-width: 1280px) {
   .show__date {
@@ -560,7 +566,11 @@ p, span, a, input, textarea {
 }
 .show__venue {
   padding-bottom: 1rem;
-  flex-basis: 20%;
+}
+@media screen and (min-width: 768px) {
+  .show__venue {
+    flex-basis: 20%;
+  }
 }
 @media screen and (min-width: 1280px) {
   .show__venue {
@@ -569,7 +579,11 @@ p, span, a, input, textarea {
 }
 .show__location {
   padding-bottom: 1rem;
-  flex-basis: 25%;
+}
+@media screen and (min-width: 768px) {
+  .show__location {
+    flex-basis: 30%;
+  }
 }
 @media screen and (min-width: 768px) {
   .show__button {

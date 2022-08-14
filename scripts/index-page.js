@@ -30,7 +30,7 @@ function getTimestamp (timestamp){
 }
 
 //declare a function to display a single comment
-function displayComments (comment) {
+function displayComment (comment) {
         commentBlock = makeElement("div", "comment");
         commentsDisplay.appendChild(commentBlock);
         const commentImage = makeElement("div", "comment__image");
@@ -51,7 +51,7 @@ function displayComments (comment) {
     // }    
 }
 
-//declare a function to fetch the comments from the api and use displayComments to put them on the page
+//declare a function to fetch the comments from the api and use displayComment to put them on the page
 const fetchComments = () => {
     axios 
     .get("https://project-1-api.herokuapp.com/comments?api_key="+bandSiteAPIKey)
@@ -62,17 +62,17 @@ const fetchComments = () => {
             return b.timestamp - a.timestamp
         })
         commentsArray.forEach((comment)=>{
-            displayComments (comment);
+            displayComment (comment);
         })
     })
-    .catch(() => {
-        const showsErrorContainer = makeElement("div", "error", "");
-        showsContainer.appendChild(showsErrorContainer);
-        const showsErrorImg = makeElement("img", "error__image", "");
-        showsErrorImg.setAttribute("src", "../assets/logos/error-gremlin.svg");
-        showsErrorContainer.appendChild(showsErrorImg);
-        const showsError = makeElement("p", "error__text", "Oh no! Gremlins got our data, please come back later!");
-        showsErrorContainer.appendChild(showsError);;
+    .catch((error) => {
+        console.log(error);
+        const commentsDisplayErrorContainer = document.createElement("div");
+        commentsDisplay.appendChild(commentsDisplayErrorContainer);
+        const commentsDisplayError = document.createElement("p");
+        commentsDisplayError.innerText = "Some comments my not be displaying correctly";
+        commentsDisplayErrorContainer.appendChild(commentsDisplayError);
+
     })
 }
 
@@ -97,5 +97,10 @@ form.addEventListener("submit", (event)=>{
         })
         .catch(error => {
             console.log(error);
+            const commentsErrorContainer = document.createElement("div");
+            commentsDisplay.prepend(commentsErrorContainer);
+            const commentsError = document.createElement("p");
+            commentsError.innerText = "Oh no! Something went wrong with your comment. Try again later!"
+            commentsErrorContainer.appendChild(commentsError);
         })
 })

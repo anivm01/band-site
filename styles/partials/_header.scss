@@ -1,6 +1,5 @@
 @use "./colors" as*;
 @use "./breakpoints" as*;
-@use "./mixins" as*;
 
 .header {
     background-color: $primary-dark-background;
